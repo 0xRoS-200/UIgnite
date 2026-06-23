@@ -7,8 +7,9 @@
   "scripts": {
     "dev": "concurrently --names \"docs\" --prefix-colors \"yellow\" \"yarn --cwd=website/docs dev\"",
     "format": "prettier . --write",
-    "i": "yarn; cd projects/uignite; yarn; yarn build; cd ../../website/docs; yarn; yarn build;",
+    "i": "yarn; cd packages/uignite; yarn; yarn build; cd ../../website/docs; yarn; yarn build;",
     "build": " lerna run build --concurrency=1",
+    "build:vercel": "yarn workspace @pkgs/uignite build && yarn workspace @uignite/docs build",
     "clean": "rimraf ./packages/**/dist ./website/**/dist",
     "generate": "node ./scripts/generate.js ; node ./scripts/generateCodeString.js"
   },
